@@ -13,13 +13,13 @@ st.write("This app uses 6 inputs to predict the species of penguin using "
          "a model built on the Palmer's Penguin's dataset. Use the form below"
          " to get started!")    
 
-# password_guess = st.text_input('What is the Password?') 
-# if password_guess != 'streamlit_password': 
-#   st.stop() 
+password_guess = st.text_input('What is the Password?') 
+if password_guess != 'streamlit_password': 
+  st.stop() 
 
-password_guess = st.text_input('What is the Password?')
-if password_guess != st.secrets["password"]:
-  st.stop()
+# password_guess = st.text_input('What is the Password?')
+# if password_guess != st.secrets["password"]:
+#   st.stop()
 
 penguin_file = st.file_uploader('Upload your own penguin data')
 
@@ -64,7 +64,7 @@ st.write('We predict your penguin is of the {} species'.format(prediction_specie
 st.write('We used a machine learning (Random Forest) model to predict the species, the features used in this prediction are ranked by relative importance below.')
 st.image('feature_importance.png')
 
-st.write('Below are the histograms for each continuous variable separated by penguin species. The vertical line  represents your the inputted value.')
+st.write('Below are the histograms for each continuous variable separated by penguin species. The vertical line  represents your inputted values.')
 fig, ax = plt.subplots()
 ax = sns.displot(x=penguin_df['bill_length_mm'],
                  hue=penguin_df['species'])
